@@ -1,21 +1,18 @@
 import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
 
 @Entity()
-export class User {
+export class Food_Entry {
 
     @PrimaryGeneratedColumn()
     id: number;
 
     @Column()
-    username: string;
+    food_name: string;
 
     @Column()
-    email: string;
+    date: string;
 
     @Column()
-    password: number;
-
-    @Column()
-    SALT: string;
+    FK_profile: number;
 
 }
