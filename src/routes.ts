@@ -59,34 +59,34 @@ export const Routes =
 
         foodEntries:[{
             method: "get",
-            route: "/foodEntries",
+            route: "/food-entries",
             controller: Food_EntryController,
             action: "all"
         }, {
             method: "get",
-            route: "/foodEntries/:id",
+            route: "/food-entries/:id",
             controller: Food_EntryController,
             action: "one"
         }, {
             method: "post",
-            route: "/foodEntries",
+            route: "/food-entries",
             controller: Food_EntryController,
             action: "save"
         }],
         
         foodValues:[{
             method: "get",
-            route: "/foodValues",
+            route: "/food-values",
             controller: Food_ValueController,
             action: "all"
         }, {
             method: "get",
-            route: "/foodValues/:id",
+            route: "/food-values/:id",
             controller: Food_ValueController,
             action: "one"
         }, {
             method: "post",
-            route: "/foodValues",
+            route: "/food-values",
             controller: Food_ValueController,
             action: "save"
         }],
