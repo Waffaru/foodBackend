@@ -6,6 +6,15 @@ import {Request, Response} from "express";
 import {Routes} from "./routes";
 import {User} from "./entity/User";
 
+
+// Initializing array used for Routes
+let routesArray = [];
+
+for(var key in Routes) {
+    //Use each key to access the array of the Route and concatenate it to routesArray
+    routesArray = routesArray.concat(Routes[key]);
+}
+
 createConnection().then(async connection => {
 
     // create express app
@@ -13,7 +22,9 @@ createConnection().then(async connection => {
     app.use(bodyParser.json());
 
     // register express routes from defined application routes
-    Routes.forEach(route => {
+
+    console.log(routesArray);
+    routesArray.forEach(route => {
         (app as any)[route.method](route.route, (req: Request, res: Response, next: Function) => {
             const result = (new (route.controller as any))[route.action](req, res, next);
             if (result instanceof Promise) {
@@ -24,6 +35,10 @@ createConnection().then(async connection => {
             }
         });
     });
+
+
+    //setting up authentication filters
+    app.all('/')
 
     // setup express app here
     // ...
